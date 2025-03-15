@@ -1,4 +1,4 @@
-module github.com/myname/cluster-api-provider-docker
+module github.com/vishalanarase/cluster-api-provider-docker
 
 go 1.21
 

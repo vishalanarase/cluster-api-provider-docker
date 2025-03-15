@@ -24,7 +24,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/myname/cluster-api-provider-docker/test/utils"
+	"github.com/vishalanarase/cluster-api-provider-docker/test/utils"
 )
 
 const namespace = "cluster-api-provider-docker-system"
