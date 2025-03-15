@@ -18,24 +18,33 @@ package v1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
 )
 
-// EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
-// NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
+const (
+	// ClusterFinalizer allows cleaning up resources associated with
+	// DockerCluster before removing it from the apiserver.
+	ClusterFinalizer = "dockercluster.infrastructure.cluster.x-k8s.io"
+)
 
 // DockerClusterSpec defines the desired state of DockerCluster
 type DockerClusterSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	// ControlPlaneEndpoint represents the endpoint used to communicate with the control plane.
+	// +optional
+	ControlPlaneEndpoint clusterv1.APIEndpoint `json:"controlPlaneEndpoint"`
 
-	// Foo is an example field of DockerCluster. Edit dockercluster_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// LoadBalancerImage allows you override the load balancer image. If not specified a
+	// default image will be used.
+	// +optional
+	LoadBalancerImage string `json:"loadbalancerImage,omitempty"`
 }
 
 // DockerClusterStatus defines the observed state of DockerCluster
 type DockerClusterStatus struct {
-	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	// Ready indicates that the cluster is ready.
+	// +optional
+	// +kubebuilder:default=falctrl.SetupSignalHandler()se
+	Ready bool `json:"ready"`
 }
 
 //+kubebuilder:object:root=true

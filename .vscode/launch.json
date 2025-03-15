@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Connect to docker provider",
+            "type": "go",
+            //"request": "attach",
+            "request": "launch",
+            //"mode": "remote",
+            "mode": "auto",
+            //"remotePath": "${workspaceFolder}/cmd/main.go"
+            "program": "${workspaceRoot}/cmd/main.go"
+            //"port": 31000,
+            //"host": "127.0.0.1"
+        }
+    ]
+}
