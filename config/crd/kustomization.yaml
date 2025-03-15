@@ -2,11 +2,11 @@
 # since it depends on service name and namespace that are out of this kustomize package.
 # It should be run by config/default
 resources:
-- bases/infrastructure.cluster.x-k8s.io_dockerclusters.yaml
-- bases/infrastructure.cluster.x-k8s.io_dockermachines.yaml
+  - bases/infrastructure.cluster.x-k8s.io_dockerclusters.yaml
+  - bases/infrastructure.cluster.x-k8s.io_dockermachines.yaml
 #+kubebuilder:scaffold:crdkustomizeresource
 
-patches:
+#patches:
 # [WEBHOOK] To enable webhook, uncomment all the sections with [WEBHOOK] prefix.
 # patches here are for enabling the conversion webhook for each CRD
 #+kubebuilder:scaffold:crdkustomizewebhookpatch
@@ -22,3 +22,6 @@ patches:
 
 #configurations:
 #- kustomizeconfig.yaml
+
+commonLabels:
+  cluster.x-k8s.io/v1beta1: v1
