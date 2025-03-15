@@ -47,5 +47,24 @@ Next: implement your new API and generate the manifests (e.g. CRDs,CRs) with:
 $ make manifests
 
 
-kubebuilder create api --group infrastructure --version v1 --kind DockerMachine
+❯ kubebuilder create api --group infrastructure --version v1 --kind DockerMachine
+INFO Create Resource [y/n]
+y
+INFO Create Controller [y/n]
+y
+INFO Writing kustomize manifests for you to edit...
+INFO Writing scaffold for you to edit...
+INFO api/v1/dockermachine_types.go
+INFO api/v1/groupversion_info.go
+INFO internal/controller/suite_test.go
+INFO internal/controller/dockermachine_controller.go
+INFO internal/controller/dockermachine_controller_test.go
+INFO Update dependencies:
+$ go mod tidy
+INFO Running make:
+$ make generate
+/Users/vishal/workspace/vishalanarase/cluster-api-provider-docker/bin/controller-gen-v0.14.0 object:headerFile="hack/boilerplate.go.txt" paths="./..."
+Next: implement your new API and generate the manifests (e.g. CRDs,CRs) with:
+$ make manifests
+
 
